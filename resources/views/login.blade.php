@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedievalKing</title>
+    <title>MedievalKing - Login</title>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 <body>
@@ -22,18 +22,23 @@
         </nav>
     </header>
     <main>
-        <section id="home">
-            <h2>Bem-vindo ao Jogo Medieval</h2>
-            <p>Entre no mundo medieval e viva grandes aventuras!</p>
-            <img src="{{ asset('images/print1.webp') }}" alt="Imagem Medieval" class="featured-image">
-        </section>
-        <section id="about">
-            <h2>Sobre o Jogo</h2>
-            <p>Nosso jogo medieval oferece uma experiência imersiva e emocionante para todos os fãs de aventuras épicas. Junte-se a nós e explore um mundo cheio de mistérios e desafios.</p>
-        </section>
-        <section id="contact">
-            <h2>Contato</h2>
-            <p>Entre em contato conosco através do email: contato@jogomedieval.com</p>
+        <section id="login">
+            <h2>Login</h2>
+            <form action="{{ route('login.post') }}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Entrar</button>
+                </div>
+            </form>
+            <p>Não tem uma conta? <a href="{{ url('/register') }}">Cadastre-se aqui</a></p>
         </section>
     </main>
     <footer>
